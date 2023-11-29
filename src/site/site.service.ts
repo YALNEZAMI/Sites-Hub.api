@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Injectable } from '@nestjs/common';
 import { CreateSiteDto } from './dto/create-site.dto';
 import { UpdateSiteDto } from './dto/update-site.dto';
@@ -31,9 +32,8 @@ export class SiteService {
 
   async update(id: string, updateSiteDto: UpdateSiteDto) {
     try {
-      const updatedApp = await this.siteModel
-        .updateOne({ _id: id }, updateSiteDto)
-        .exec();
+      await this.siteModel.updateOne({ _id: id }, updateSiteDto).exec();
+      const updatedApp = await this.findOne(id);
       return {
         status: 200,
         message: 'Site updated successfully',
