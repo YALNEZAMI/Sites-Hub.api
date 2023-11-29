@@ -1,9 +1,12 @@
+/* eslint-disable prettier/prettier */
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class CreateSiteDto {
   @PrimaryGeneratedColumn()
-  _id: string;
+  _id?: string;
+  @Column()
+  user: string;
   @Column()
   name: string;
   @Column()
@@ -15,9 +18,9 @@ export class CreateSiteDto {
   @Column()
   category: string;
   @Column()
-  createdAt: Date;
+  addDate: Date;
   @Column()
-  updatedAt: Date;
+  updatedAt?: Date;
   @Column()
-  OpenedAt: Date;
+  OpenedAt?: Date;
 }
